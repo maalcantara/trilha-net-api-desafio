@@ -1,11 +1,13 @@
 using System.Text.Json.Serialization;
+using trilha_net_api_desafio.Context;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TrilhaApiDesafio.Context;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<OrganizadorContext>(options =>
+builder.Services.AddDbContext<ListaTarefasContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 builder.Services.AddControllers().AddJsonOptions(options =>
